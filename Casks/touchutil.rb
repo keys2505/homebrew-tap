@@ -1,6 +1,6 @@
 cask "touchutil" do
-  version "1.0.0"
-  sha256 "placeholder"
+  version "1.1.0"
+  sha256 "7a611060296498e4262163e29408cc7981b476295218eacd5a7a2b2694671a15"
 
   url "https://github.com/keys2505/touchutil/releases/download/v#{version}/touchutil-#{version}.zip"
   name "touchutil"
