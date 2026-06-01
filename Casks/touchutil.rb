@@ -18,7 +18,7 @@ cask "touchutil" do
       sudo:         false,
       must_succeed: false
     system_command "/usr/bin/pkill",
-      args:         ["-x", "touchutil"], must_succeed: false,
+      args:         ["-x", "touchutil"],
       must_succeed: false
     # Reset permissions so the new binary can request them fresh on first launch.
     system_command "/usr/bin/tccutil",
