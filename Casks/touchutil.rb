@@ -17,8 +17,8 @@ cask "touchutil" do
       args:         ["bootout", "gui/#{Process.uid}/com.touchutil.agent"],
       sudo:         false,
       must_succeed: false
-    system_command "/bin/pkill",
-      args:         ["-x", "touchutil"],
+    system_command "/usr/bin/pkill",
+      args:         ["-x", "touchutil"], must_succeed: false,
       must_succeed: false
     # Reset permissions so the new binary can request them fresh on first launch.
     system_command "/usr/bin/tccutil",
