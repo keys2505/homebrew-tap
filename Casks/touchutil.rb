@@ -1,6 +1,6 @@
 cask "touchutil" do
-  version "1.2.4"
-  sha256 "b366d3662b6c1271d262218e0e4f5fc65198c107a5c4537d326b516ca582f78b"
+  version "1.2.2"
+  sha256 ""
 
   url "https://github.com/keys2505/touchutil/releases/download/v#{version}/touchutil-#{version}.zip"
   name "touchutil"
@@ -19,6 +19,13 @@ cask "touchutil" do
       must_succeed: false
     system_command "/bin/pkill",
       args:         ["-x", "touchutil"],
+      must_succeed: false
+    # Reset permissions so the new binary can request them fresh on first launch.
+    system_command "/usr/bin/tccutil",
+      args:         ["reset", "Accessibility", "com.eriproject.touchutil"],
+      must_succeed: false
+    system_command "/usr/bin/tccutil",
+      args:         ["reset", "ListenEvent", "com.eriproject.touchutil"],
       must_succeed: false
     system_command "/bin/rm",
       args:         ["-rf", "/Applications/touchutil.app"],
