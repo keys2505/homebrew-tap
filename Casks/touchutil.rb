@@ -1,6 +1,6 @@
 cask "touchutil" do
-  version "1.2.0"
-  sha256 "c823b960247eb7f151920c4b12ddcb4b1de4ef104638b6315705d9d0fcbe3c43"
+  version "1.1.0"
+  sha256 "7a611060296498e4262163e29408cc7981b476295218eacd5a7a2b2694671a15"
 
   url "https://github.com/keys2505/touchutil/releases/download/v#{version}/touchutil-#{version}.zip"
   name "touchutil"
@@ -9,6 +9,11 @@ cask "touchutil" do
 
   app "touchutil.app"
   binary "#{appdir}/touchutil.app/Contents/MacOS/touchutil"
+
+  preflight do
+    # Remove any existing installation (manual or previous cask) to avoid conflicts.
+    system_command "/bin/rm", args: ["-rf", "/Applications/touchutil.app"], sudo: true
+  end
 
   postflight do
     exec_path = "#{appdir}/touchutil.app/Contents/MacOS/touchutil"
